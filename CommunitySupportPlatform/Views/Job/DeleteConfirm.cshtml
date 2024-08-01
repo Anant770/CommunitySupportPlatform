@@ -1,0 +1,30 @@
+﻿@model Job_Portal.Models.JobDto
+
+@{
+    ViewBag.Title = "Delete Job";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">@ViewBag.Title</h2>
+
+    <div class="alert alert-danger text-center">
+        <h4>Are you sure you want to delete this job?</h4>
+        <p><strong>@Model.Title</strong></p>
+        <p><strong>Company:</strong> @Model.CompanyName</p>
+        <p><strong>Location:</strong> @Model.Location</p>
+        <p><strong>Posted Date:</strong> @Model.PostedDate.ToShortDateString()</p>
+        <p><strong>Job Category:</strong> @Model.JobCategoryName</p>
+    </div>
+
+    <form action="/Job/Delete/@Model.JobId" method="POST">
+        <div class="text-center">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            @Html.ActionLink("Cancel", "List", null, new { @class = "btn btn-secondary ml-2" })
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
