@@ -24,7 +24,9 @@ namespace CommunitySupportPlatform.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<JobCategory> JobCategories { get; set; }
+        public DbSet<Job> Jobs { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

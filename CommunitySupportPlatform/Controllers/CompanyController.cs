@@ -1,5 +1,5 @@
-﻿using Job_Portal.Models;
-using Job_Portal.Models.ViewModels;
+﻿using CommunitySupportPlatform.Models;
+using CommunitySupportPlatform.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
-namespace Job_Portal.Controllers
+namespace CommunitySupportPlatform.Controllers
 {
     public class CompanyController : Controller
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Job_Portal.Models
+namespace CommunitySupportPlatform.Models
 {
     public class Company
     {

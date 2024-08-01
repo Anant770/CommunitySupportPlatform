@@ -1,4 +1,4 @@
-﻿using Job_Portal.Models;
+﻿using CommunitySupportPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -10,7 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Routing;
 
-namespace Job_Portal.Controllers
+namespace CommunitySupportPlatform.Controllers
 {
     /// <summary>
     /// The JobDataController class handles the API endpoints for managing job data.

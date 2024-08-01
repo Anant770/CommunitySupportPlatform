@@ -5,10 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net.Http;
 using System.Diagnostics;
-using Job_Portal.Models;
+using CommunitySupportPlatform.Models;
 using System.Web.Script.Serialization;
 
-namespace Job_Portal.Controllers
+namespace CommunitySupportPlatform.Controllers
 {
     /// <summary>
     /// The JobController class handles the web-based interactions with job data, including CRUD operations.

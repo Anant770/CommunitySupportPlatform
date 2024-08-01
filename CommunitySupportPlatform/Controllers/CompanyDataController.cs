@@ -1,4 +1,4 @@
-﻿using Job_Portal.Models;
+﻿using CommunitySupportPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 
-namespace Job_Portal.Controllers
+namespace CommunitySupportPlatform.Controllers
 {
     /// <summary>
     /// The CompanyDataController class handles the API interactions for managing company data.
