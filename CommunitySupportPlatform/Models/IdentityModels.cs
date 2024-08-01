@@ -27,6 +27,9 @@ namespace CommunitySupportPlatform.Models
         public DbSet<Company> Companies { get; set; }
         public DbSet<JobCategory> JobCategories { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Donor> Donors { get; set; }
+        public DbSet<Campaign> Campaigns { get; set; }
+        public DbSet<Donation> Donations { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

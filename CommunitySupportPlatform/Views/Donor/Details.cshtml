@@ -1,0 +1,52 @@
+﻿@model CommunitySupportPlatform.Models.DonorDto
+
+@{
+    ViewBag.Title = "View";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <a href="/Donor/List" class="btn btn-secondary mb-4">Go back to List</a>
+    <div class="card">
+        <div class="card-header">
+            <h2>@Model.DonorName</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Email:</strong> @Model.DonorEmail</p>
+            <div class="mt-4">
+                <a href="/Donor/Edit/@Model.DonorId" class="btn btn-warning mr-2">Edit</a>
+                <a href="/Donor/DeleteConfirm/@Model.DonorId" class="btn btn-danger">Delete</a>
+            </div>
+            <h3 class="mt-4">Donations</h3>
+            @if (Model.Donations != null && Model.Donations.Any())
+            {
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Donation ID</th>
+                            <th>Amount</th>
+                            <th>Campaign</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var donation in Model.Donations)
+                        {
+                            <tr>
+                                <td>@donation.DonationId</td>
+                                <td>@donation.DonationAmount.ToString("C")</td>
+                                <td>@donation.CampaignName</td>
+                                <td>@donation.DonationDate.ToString("dd MMM yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No donations found for this donor.</p>
+            }
+        </div>
+    </div>
+</div>

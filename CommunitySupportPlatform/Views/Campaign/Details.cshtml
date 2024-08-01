@@ -1,0 +1,54 @@
+﻿@model CommunitySupportPlatform.Models.CampaignDto
+
+@{
+    ViewBag.Title = "Campaign Details";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <a href="/Campaign/List" class="btn btn-secondary mb-4">Go back to List</a>
+    <div class="card">
+        <div class="card-header">
+            <h2>@Model.CampaignName</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Description:</strong> @Model.CampaignDescription</p>
+            <p><strong>Start Date:</strong> @Model.CampaignStartDate</p>
+            <p><strong>End Date:</strong> @Model.CampaignEndDate</p>
+            <div class="mt-4">
+                <a href="/Campaign/Edit/@Model.CampaignId" class="btn btn-warning mr-2">Edit</a>
+                <a href="/Campaign/DeleteConfirm/@Model.CampaignId" class="btn btn-danger">Delete</a>
+            </div>
+            <h3 class="mt-4">Donations</h3>
+            @if (Model.Donations != null && Model.Donations.Any())
+            {
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Donation ID</th>
+                            <th>Amount</th>
+                            <th>Donor</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var donation in Model.Donations)
+                        {
+                            <tr>
+                                <td>@donation.DonationId</td>
+                                <td>@donation.DonationAmount.ToString("C")</td>
+                                <td>@donation.DonorName</td>
+                                <td>@donation.DonationDate.ToString("dd MMM yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No donations found for this campaign.</p>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CommunitySupportPlatform.Models.DonorDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h1 class="text-center mb-3">Donation Management System</h1>
+    <nav class="nav justify-content-center mb-4">
+        <a class="btn btn-dark m-1" href="/Donor/List">Donor</a>
+        <a class="btn btn-dark m-1" href="/Campaign/List">Campaigns</a>
+        <a class="btn btn-dark m-1" href="/Donation/List">Donations</a>
+    </nav>
+
+    <h2 class="mb-4">Donor List</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var donor in Model)
+            {
+                <tr>
+                    <td>@donor.DonorId</td>
+                    <td>@donor.DonorName</td>
+                    <td>@donor.DonorEmail</td>
+                    <td>
+                        <a href="/Donor/Details/@donor.DonorId" class="btn btn-info btn-sm">Details</a>
+                        <a href="/Donor/Edit/@donor.DonorId" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/Donor/DeleteConfirm/@donor.DonorId" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Donor/New" class="btn btn-primary mt-3">Add New Donor</a>
+</div>
+

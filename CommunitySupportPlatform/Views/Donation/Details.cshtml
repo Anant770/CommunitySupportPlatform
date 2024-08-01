@@ -1,0 +1,26 @@
+﻿@model CommunitySupportPlatform.Models.ViewModels.DetailsDonation
+
+@{
+    ViewBag.Title = "View Donation";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Donation By @Model.SelectedDonation.DonorName </h2>
+            <h3>$@Model.SelectedDonation.DonationAmount</h3>
+            <div>Donor: @Model.SelectedDonation.DonorName</div>
+            <div>Campaign: @Model.SelectedDonation.CampaignName</div>
+            <div>Amount: @Model.SelectedDonation.DonationAmount</div>
+            <div>Date: @Model.SelectedDonation.DonationDate.ToString("yyyy-MM-dd")</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/Donation/List" class="btn btn-secondary mb-3">Go back to list</a>
+            <a href="/Donation/Edit/@Model.SelectedDonation.DonationId" class="btn btn-primary mb-3">Update</a>
+            <a href="/Donation/DeleteConfirm/@Model.SelectedDonation.DonationId" class="btn btn-danger mb-3">Delete</a>
+        </div>
+    </div>
+</div>
