@@ -28,7 +28,7 @@ namespace CommunitySupportPlatform.Controllers
             };
 
             client = new HttpClient(handler);
-            client.BaseAddress = new Uri("https://localhost:44320/api/jobdata/");
+            client.BaseAddress = new Uri("https://localhost:44394/api/jobdata/");
         }
 
         /// <summary>

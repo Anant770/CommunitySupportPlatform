@@ -26,7 +26,7 @@ namespace CommunitySupportPlatform.Controllers
             };
 
             client = new HttpClient(handler);
-            client.BaseAddress = new Uri("https://localhost:44320/api/");
+            client.BaseAddress = new Uri("https://localhost:44394/api/");
         }
 
         // GET: Category/List
