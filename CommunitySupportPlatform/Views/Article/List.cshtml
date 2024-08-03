@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CommunitySupportPlatform.Models.ArticleDto>
+
+@{
+    ViewBag.Title = "Articles List";
+}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<nav class="nav justify-content-center mb-4">
+    <a class="btn btn-dark m-1" href="/article/List">Article</a>
+    <a class="btn btn-dark m-1" href="/category/List">Category</a>
+    <a class="btn btn-dark m-1" href="/category/List">Comment</a>
+</nav>
+
+<h2>Articles List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Published Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var article in Model)
+        {
+            <tr>
+                <td>@article.Title</td>
+                <td>@article.Content</td>
+                <td>@article.PublishedDate.ToShortDateString()</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = article.Id }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = article.Id }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Delete", "DeleteConfirm", new { id = article.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("New", "Article")" class="btn btn-success">Create New Article</a>

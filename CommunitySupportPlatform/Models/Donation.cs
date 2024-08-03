@@ -24,6 +24,10 @@ namespace CommunitySupportPlatform.Models
         [ForeignKey("Campaign")]
         public int CampaignId { get; set; }  // Foreign key to Campaign
         public virtual Campaign Campaign { get; set; }  // Navigation property to Campaign
+
+        [ForeignKey("Company")]
+        public int CompanyId { get; set; }
+        public virtual Company Company { get; set; }
     }
 
     public class DonationDto
@@ -34,6 +38,7 @@ namespace CommunitySupportPlatform.Models
 
         // Additional properties for navigation purposes
         public int DonorId { get; set; }
+        public int CompanyId { get; set; }
         public string DonorName { get; set; }  // Including DonorName for easier display in views
         public int CampaignId { get; set; }
         public string CampaignName { get; set; }  // Including CampaignName for easier display in views

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CommunitySupportPlatform.Models.CategoryDto>
+
+@{
+    ViewBag.Title = "Categories";
+}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<nav class="nav justify-content-center mb-4">
+    <a class="btn btn-dark m-1" href="/article/List">Article</a>
+    <a class="btn btn-dark m-1" href="/category/List">Category</a>
+    <a class="btn btn-dark m-1" href="/category/List">Comment</a>
+</nav>
+<h2>Categories</h2>
+
+<p>
+    @Html.ActionLink("Create New Category", "New")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

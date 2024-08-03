@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using CommunitySupportPlatform.Models;
 
 namespace CommunitySupportPlatform.Models
 {
@@ -30,6 +31,8 @@ namespace CommunitySupportPlatform.Models
         public DbSet<Donor> Donors { get; set; }
         public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<Donation> Donations { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Article> Articles { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

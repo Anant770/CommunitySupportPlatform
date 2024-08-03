@@ -28,6 +28,10 @@ namespace CommunitySupportPlatform.Models
         public int CompanyId { get; set; }
         public virtual Company Company { get; set; }
 
+        [ForeignKey("Article")]
+        public int ArticleId { get; set; }
+        public virtual Article Article { get; set; }
+
         /// Job category has many jobs
         /// <summary>
         /// Gets or sets the ID of the category to which the job belongs.
@@ -49,5 +53,7 @@ namespace CommunitySupportPlatform.Models
         public string CompanyAddress { get; set; }
         public int JobCategoryId { get; set; }
         public string JobCategoryName { get; set; }
+        public int ArticleId { get; set; }
+
     }
 }
