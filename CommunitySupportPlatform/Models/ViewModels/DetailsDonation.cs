@@ -23,5 +23,6 @@ namespace CommunitySupportPlatform.Models.ViewModels
 
         // All available campaigns (for possible reassignment or information)
         public IEnumerable<CampaignDto> AvailableCampaigns { get; set; }
+        public IEnumerable<CompanyDto> RelatedCompanies { get; set; }
     }
 }

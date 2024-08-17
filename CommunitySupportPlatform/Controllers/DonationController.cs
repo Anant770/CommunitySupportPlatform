@@ -152,6 +152,12 @@ namespace CommunitySupportPlatform.Controllers
             IEnumerable<CampaignDto> CampaignOptions = response.Content.ReadAsAsync<IEnumerable<CampaignDto>>().Result;
             ViewModel.CampaignOptions = CampaignOptions;
 
+            url = "companydata/listcompanies";
+            response = client.GetAsync(url).Result;
+            IEnumerable<CompanyDto> CompanyOptions = response.Content.ReadAsAsync<IEnumerable<CompanyDto>>().Result;
+            ViewModel.CompanyOptions = CompanyOptions;
+
+
             return View(ViewModel);
         }
         // POST: Donation/Create

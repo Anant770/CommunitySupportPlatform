@@ -81,6 +81,39 @@ namespace CommunitySupportPlatform.Controllers
         }
 
         /// <summary>
+        /// Retrieves a list of articles related to a specific job.
+        /// </summary>
+        /// <param name="jobId">The ID of the job for which to retrieve articles.</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: A list of ArticleDto objects related to the job.
+        /// </returns>
+        /// <example>
+        /// GET: api/ArticleData/ListArticlesForJob/5
+        /// </example>
+        [Route("api/ArticleData/ListArticlesForJob/{jobId}")]
+        [HttpGet]
+        [ResponseType(typeof(IEnumerable<ArticleDto>))]
+        public IHttpActionResult ListArticlesForJob(int jobId)
+        {
+            // Assuming there is a relationship between jobs and articles in the database
+            var articles = db.Articles.Where(a => a.JobId == jobId).ToList();
+
+            List<ArticleDto> articleDtos = new List<ArticleDto>();
+
+            articles.ForEach(a => articleDtos.Add(new ArticleDto()
+            {
+                Id = a.ArticleId,
+                Title = a.Title,
+                Content = a.Content,
+                PublishedDate = a.PublishedDate
+            }));
+
+            return Ok(articleDtos);
+        }
+
+
+        /// <summary>
         /// Updates a article in the system with POST Data input.
         /// </summary>
         /// <param name="id">The ID of the article to be updated.</param>

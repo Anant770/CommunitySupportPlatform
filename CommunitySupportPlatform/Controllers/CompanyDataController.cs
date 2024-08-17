@@ -72,6 +72,33 @@ namespace CommunitySupportPlatform.Controllers
         }
 
         /// <summary>
+        /// Retrieves a list of all companies for donation purposes.
+        /// </summary>
+        /// <returns>An IEnumerable of CompanyDto objects.</returns>
+        /// <example>
+        /// GET: api/CompanyData/ListCompaniesForDonation
+        /// </example>
+        [Route("api/CompanyData/ListCompaniesForDonation/{donationId}")]
+        [HttpGet]
+        [ResponseType(typeof(IEnumerable<CompanyDto>))]
+        public IHttpActionResult ListCompaniesForDonation(int donationId)
+        {
+            // Assuming there is a relationship between donations and companies in the database
+            var companies = db.Companies.ToList();
+
+            List<CompanyDto> companyDtos = new List<CompanyDto>();
+
+            companies.ForEach(c => companyDtos.Add(new CompanyDto()
+            {
+                CompanyId = c.CompanyId,
+                Name = c.Name,
+                Address = c.Address
+            }));
+
+            return Ok(companyDtos);
+        }
+
+        /// <summary>
         /// Adds a new company to the database.
         /// </summary>
         /// <param name="company">The Company object to add.</param>

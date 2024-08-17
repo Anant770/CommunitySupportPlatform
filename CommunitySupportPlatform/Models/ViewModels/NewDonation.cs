@@ -12,5 +12,6 @@ namespace CommunitySupportPlatform.Models.ViewModels
 
         // All campaigns to choose from when creating this donation
         public IEnumerable<CampaignDto> CampaignOptions { get; set; }
+        public IEnumerable<CompanyDto> CompanyOptions { get; set; }
     }
 }
